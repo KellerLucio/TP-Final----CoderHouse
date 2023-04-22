@@ -24,6 +24,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('', index, name="index"),
     path('admin/', admin.site.urls),
     path('post/list', PostList.as_view(), name="post-list"),
     path('post/<pk>/detail', PostDetail.as_view(), name="post-detail"),

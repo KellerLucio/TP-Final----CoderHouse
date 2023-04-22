@@ -17,7 +17,7 @@
     
 
     <!-- Bootstrap core CSS -->
-<link href="{% static 'SocialTravel/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'blog_cc/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Favicons -->
 <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -46,7 +46,7 @@
     </style>
 
     <!-- Custom styles for this template -->
-    <link href="{% static 'SocialTravel/css/carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'blog_cc/css/carousel.css' %}" rel="stylesheet">
 </head>
   <body>
       
@@ -58,21 +58,24 @@
             <img src="{{user.profile.imagen.url}}" height="100%" width="36px" style="border-radius: 50%; margin-right:10px">
             </a>
           {% endif %}
-          <a class="navbar-brand" href="{% url 'index' %}">Social Travel</a>
+          <a class="navbar-brand" href="{% url 'index' %}">Blog Cuentos Cortos</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'post-create' %}">Nuevo Post</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'post-list' %}">Mis Post</a>
+                <a class="nav-link" href="{% url 'post-list' %}">Leer cuentos cortos</a>
               </li>
               {% if user.is_authenticated %}
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'logout' %}"> {{user.username}} | Logout</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'mensaje-list' %}">Ver mis mensajes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'post-create' %}">Nuevo Post</a>
                 </li>
               {% else %}  
                 <li class="nav-item">
@@ -104,7 +107,7 @@
     <p>© 2017–2021 Company, Inc. · <a href="https://getbootstrap.com/docs/5.0/examples/carousel/#">Privacy</a> · <a href="https://getbootstrap.com/docs/5.0/examples/carousel/#">Terms</a></p>
   </footer>
   
-    <script src="{% static 'SocialTravel/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'blog_cc/js/bootstrap.bundle.min.js' %}"></script>
 
 
   </body>

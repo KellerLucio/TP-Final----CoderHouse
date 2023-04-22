@@ -1,6 +1,7 @@
-{% extends "SocialTravel/base.html" %}
+{% extends "blog_cc/base.html" %}
 
 {% block main %}
+
 <main>
   <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -16,7 +17,7 @@
               <div class="carousel-caption text-start">
                 <h1>{{post.carousel_caption_title}}</h1>
                 <p>{{post.carousel_caption_description}}</p>
-                <p><a class="btn btn-lg btn-warning" href="{% url 'post-detail' post.id %}">ver mas</a></p>
+                <p><a class="btn btn-lg btn-dark" href="{% url 'post-detail' post.id %}">Leer cuento</a></p>
               </div>
             </div>
           </div>
@@ -32,7 +33,6 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-
 
   <!-- Marketing messaging and featurettes
   ================================================== -->
@@ -60,38 +60,6 @@
 
 
     <!-- START THE FEATURETTES -->
-
-    
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-      <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading">El puente</h2>
-        <p class="lead">vistas lindas del rio</p>
-      </div>
-      <div class="col-md-5 order-md-1">
-        
-          <img src="./curso_coder_house_files/puente-corrientes-resistencia.jpeg" height="400" width="400">
-        
-
-      </div>
-    </div>
-
-    
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-      <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading">Las cataratas</h2>
-        <p class="lead">un destino imperdible</p>
-      </div>
-      <div class="col-md-5 order-md-1">
-        
-          <img src="./curso_coder_house_files/cataratas-del-iguazu-misiones.jpeg" height="400" width="400">
-        
-
-      </div>
-    </div>
 
     
 

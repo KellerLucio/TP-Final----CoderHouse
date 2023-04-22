@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from SocialTravel.models import Post, Profile, Mensaje
+from blog_cc.models import Post, Profile, Mensaje
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView, LogoutView
@@ -8,13 +8,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 def about(request):
-    return render(request, "SocialTravel/about.html")
+    return render(request, "blog_cc/about.html")
 
 def index(request):
     context = {
         "posts": Post.objects.all()
     }
-    return render(request, "SocialTravel/index.html", context)
+    return render(request, "blog_cc/index.html", context)
 
 class PostList(ListView):
     model = Post
@@ -45,7 +45,7 @@ class PostUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return Post.objects.filter(publisher=user_id, id=post_id).exists()
 
     def handle_no_permission(self):
-        return render(self.request, "SocialTravel/not_found.html")
+        return render(self.request, "blog_cc/not_found.html")
 
 class PostDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
@@ -57,7 +57,7 @@ class PostDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return Post.objects.filter(publisher=user_id, id=post_id).exists()
 
     def handle_no_permission(self):
-        return render(self.request, "SocialTravel/not_found.html")
+        return render(self.request, "blog_cc/not_found.html")
 
 
 class SignUp(CreateView):

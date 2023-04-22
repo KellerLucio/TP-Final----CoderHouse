@@ -1,4 +1,4 @@
-{% extends "SocialTravel/base.html" %}
+{% extends "blog_cc/base.html" %}
 
 {% block main %}
 <p>
@@ -8,6 +8,8 @@
     <br>
     {{object.description}}
     <br>
-    <a href="{% url 'post-list' %}"> volver</a>
+    <a href="{% url 'post-list' %}"> volver a mis post</a>
+    <br>
+    <a href="{% url 'index' %}"> volver a inicio</a>
 </p>
 {% endblock %}
