@@ -71,11 +71,30 @@ class Login(LoginView):
 
 class Logout(LogoutView):
     template_name = 'registration/logout.html'
-
-
-class ProfileUpdate(UpdateView):
+    
+#-------------------------------------------------------------------------------------------------
+class ProfileCreate(CreateView):
     model = Profile
-    fields = '__all__'
+    fields = ['instagram', 'imagen']
+
+    def form_valid(self, form):
+        # comprobar si ya existe un perfil para este usuario
+        if hasattr(self.request.user, 'profile'):
+            # actualizar el perfil existente
+            profile = self.request.user.profile
+            profile.instagram = form.cleaned_data['instagram']
+            profile.imagen = form.cleaned_data['imagen']
+            profile.save()
+        else:
+            # crear un nuevo perfil
+            form.instance.user = self.request.user
+            return super().form_valid(form)
+    success_url = reverse_lazy("index")
+
+class ProfileUpdate(LoginRequiredMixin, UpdateView):
+    model = Profile
+    fields = ['instagram', 'imagen']
+#-------------------------------------------------------------------------------------------------
 
 
 class MensajeCreate(CreateView):
