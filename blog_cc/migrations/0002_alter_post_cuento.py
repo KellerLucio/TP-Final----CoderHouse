@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterField(
             model_name='post',
-            name='cuento',
+            name='post',
             field=models.CharField(max_length=1000),
         ),
     ]

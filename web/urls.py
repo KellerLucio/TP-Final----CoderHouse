@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from blog_cc.views import (index, PostList, 
                                 PostDetail, PostCreate, PostUpdate, PostDelete,
-                                SignUp, Login, Logout,
+                                SignUp, Login, Logout, about,
                                 ProfileCreate, ProfileUpdate,
                                 MensajeCreate, MensajeDelete, MensajeList)
 
