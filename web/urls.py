@@ -15,7 +15,30 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from blog_cc.views import (index, PostList, 
+                                PostDetail, PostCreate, PostUpdate,
+                                PostDelete, SignUp, Login, Logout,
+                                ProfileUpdate, MensajeCreate, MensajeDelete, MensajeList)
+
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('post/list', PostList.as_view(), name="post-list"),
+    path('post/<pk>/detail', PostDetail.as_view(), name="post-detail"),
+    path('post/create', PostCreate.as_view(), name="post-create"),
+    path('post/<pk>/update', PostUpdate.as_view(), name="post-update"),
+    path('post/<pk>/delete', PostDelete.as_view(), name="post-delete"),
+    path('signup/', SignUp.as_view(), name="signup"),
+    path('login/', Login.as_view(), name="login"),
+    path('logout/', Logout.as_view(), name="logout"),
+    path('profile/<pk>/update', ProfileUpdate.as_view(), name="profile-update"),
+    path('mensaje/create', MensajeCreate.as_view(), name="mensaje-create"),
+    path('mensaje/list', MensajeList.as_view(), name="mensaje-list"),
+    path('mensaje/<pk>/delete', MensajeDelete.as_view(), name="mensaje-delete"),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
